@@ -1,3 +1,3 @@
 # jest-js-tests
 
-Tests expamples of array methods using Jest
+Expamples of testing array methods and rxjs operators using Jest
