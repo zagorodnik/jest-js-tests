@@ -4,6 +4,6 @@ const map = (array) => {
 
 const arrayNum = [25, 36, 49];
 
-test('define sqrt of each number', () => {
+test('project sqrt of each given number', () => {
     expect(map(arrayNum)).toEqual([5, 6, 7])
 })
