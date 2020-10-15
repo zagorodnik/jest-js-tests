@@ -1,4 +1,6 @@
-const filter = require('./filter');
+const filter = (array) => {
+    return array.filter(array => array.length > 6);
+}
 
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 

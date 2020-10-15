@@ -1,4 +1,6 @@
-const reduce = require('./reduce');
+const reduce = (arrayNum, reducer) => {
+    return arrayNum.reduce(reducer)
+}
 
 const arrayNum = [1, 2, 3, 4, 5];
 let reducer = (accumulator, currentValue) => accumulator + currentValue;

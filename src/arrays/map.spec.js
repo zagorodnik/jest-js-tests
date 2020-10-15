@@ -1,4 +1,6 @@
-const map = require('./map');
+const map = (array) => {
+    return array.map(Math.sqrt);
+}
 
 const arrayNum = [25, 36, 49];
 

@@ -1,4 +1,6 @@
-const find = require('./find');
+const find = (array) => {
+    return array.find(element => element > 120);
+}
 
 const arrayNum = [5, 12, 8, 130, 44];
 

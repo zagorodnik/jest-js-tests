@@ -1,4 +1,6 @@
-const entries = require('./entries');
+const entries = (array) => {
+    return array.entries();
+}
 
 const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 

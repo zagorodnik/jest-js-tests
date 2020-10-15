@@ -1,4 +1,6 @@
-const indexOf = require('./indexOf');
+const indexOf = (array, value) => {
+    return array.indexOf(value);
+}
 
 const animals = ['ant', 'bison', 'camel', 'duck', 'bison'];
 
