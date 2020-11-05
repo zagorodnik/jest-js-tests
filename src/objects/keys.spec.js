@@ -13,7 +13,6 @@ test('array-like object with random key ordering', () => {
     expect(Object.keys(anObj)).toEqual(['2', '7', '100']);
 });
 
-// getFoo is a property which isn't enumerable
 const myObj = Object.create({}, {
   getFoo: {
     value: function () { return this.foo; }

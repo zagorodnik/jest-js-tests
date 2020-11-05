@@ -16,8 +16,9 @@ test('display newly created object with modified properties', () => {
 
 test('create null object', () => {
     expect(Object.create(null)).toEqual({})
-})
+});
 
 test('create empty object', () => {
     expect(Object.create({})).toEqual({})
-})
+});
+

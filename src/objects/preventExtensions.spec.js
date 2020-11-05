@@ -2,27 +2,25 @@ var obj = {};
 var obj2 = Object.preventExtensions(obj);
 
 test('check if objects are the same', () => {
-    expect(obj === obj2).toBe(true);
+    expect(obj === obj2).toBeTruthy();
 });
 
 let empty = {};
 
 test('check if object extensible by default', () => {
-    expect(Object.isExtensible(empty)).toBe(true);
+    expect(Object.isExtensible(empty)).toBeTruthy();
 });
 
 test('check again if object extensible', () => {
     Object.preventExtensions(empty);
-    expect(Object.isExtensible(empty)).toBe(false);
+    expect(Object.isExtensible(empty)).toBeFalsy();
 });
 
-let nonExtensible = { removable: true };
-Object.preventExtensions(nonExtensible);
+// test('Trying to create new property', () => {
+//     let nonExtensible = { removable: true };
+//     Object.preventExtensions(nonExtensible);
 
-// Object.defineProperty(nonExtensible, 'new', {
-//   value: 8675309
-// });
-
-// test('check new value', () => {
-//     expect(nonExtensible.new).toBeUndefined();
+//     expect(Object.defineProperty(nonExtensible, 'new1', {
+//         value: 12
+//     })).toThrow(TypeError);
 // });

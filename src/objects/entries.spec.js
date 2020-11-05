@@ -11,4 +11,4 @@ test('return ordered array without enumerable keys', () => {
 
 test('return empty array', () => {
     expect(Object.entries(12)).toEqual([]);
-})
+});
