@@ -1,8 +1,9 @@
 const { from, of } = require('rxjs');
 
 test('the observable emits hello', done => {
-    of('hello').subscribe( data => {
-      expect(data).not.toBe('random text');
+    let value = 'hello';
+    of(value).subscribe( data => {
+      expect(data).toBe(value);
       done();
     });
 });
@@ -18,3 +19,5 @@ test('the observable interval emits multiple time with step 100', done => {
         complete: () => done(),
     });
 });
+
+// hot vs cold

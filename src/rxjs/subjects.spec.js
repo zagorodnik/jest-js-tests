@@ -1,4 +1,4 @@
-const { Subject, ReplaySubject, BehaviorSubject } = require('rxjs');
+const { Subject, ReplaySubject, BehaviorSubject, AsyncSubject } = require('rxjs');
 
 test('Subject casts value to multiple observers', () => {
     const subj = new Subject();
@@ -36,7 +36,7 @@ test('Replay subject is holding the last emitted value', () => {
 });
 
 test('Replay subject is holding specified number of values', () => {
-    const rplSubj = new ReplaySubject(0);
+    const rplSubj = new ReplaySubject(2);
     let result = [2, 100];
 
     rplSubj.next(1);
@@ -50,7 +50,7 @@ test('Replay subject is holding specified number of values', () => {
 
 test('Behavior subject with initial value', () => {
     const bhvSubj = new BehaviorSubject(5);
-    let result = [5];
+    let result = 5;
 
     bhvSubj.subscribe(value => {
         expect(value).toEqual(result);
@@ -59,7 +59,7 @@ test('Behavior subject with initial value', () => {
 
 test('Behavior subject with emitted value', () => {
     const bhvSubj = new BehaviorSubject(5);
-    let result = [7];
+    let result = 7;
 
     bhvSubj.next(6);
     bhvSubj.next(7);
@@ -68,3 +68,5 @@ test('Behavior subject with emitted value', () => {
         expect(value).toEqual(result);
     });
 });
+
+//TODO: Async Subject
