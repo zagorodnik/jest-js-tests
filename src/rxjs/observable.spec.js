@@ -1,0 +1,20 @@
+const { from, of } = require('rxjs');
+
+test('the observable emits hello', done => {
+    of('hello').subscribe( data => {
+      expect(data).not.toBe('random text');
+      done();
+    });
+});
+
+test('the observable interval emits multiple time with step 100', done => {
+    let last = 100;
+    from([100, 200, 300])
+    .subscribe({
+        next: val => {
+            expect(val).toBe(last)
+            last += 100
+          },
+        complete: () => done(),
+    });
+});
