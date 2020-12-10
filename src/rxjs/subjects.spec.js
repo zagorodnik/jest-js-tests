@@ -69,4 +69,12 @@ test('Behavior subject with emitted value', () => {
     });
 });
 
-//TODO: Async Subject
+test('Testing async subject', () => {
+    const asyncSubj = new AsyncSubject;
+    asyncSubj.next(10);
+    asyncSubj.next(11);
+    asyncSubj.complete();
+    asyncSubj.subscribe(value => {
+        expect(value).toStrictEqual(10, 11);
+    });
+})
