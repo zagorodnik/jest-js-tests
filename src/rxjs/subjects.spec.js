@@ -11,33 +11,35 @@ test('Subject casts value to multiple observers', () => {
     expect(result[0]).toEqual(result[1]);
 });
 
-test('Replay subject is holding all values when you did not specify replay number', () => {
+test('Replay subject is holding all values when you did not specify replay number', done => {
     const rplSubj = new ReplaySubject();
-    let result = [1, 2];
+    let result = 1;
 
     rplSubj.next(1);
     rplSubj.next(2);
 
     rplSubj.subscribe(value => {
         expect(value).toEqual(result);
+        done();
     });
 });
 
-test('Replay subject is holding the last emitted value', () => {
+test('Replay subject is holding the last emitted value', done => {
     const rplSubj = new ReplaySubject(0);
-    let result = [2];
+    let result = 2;
 
     rplSubj.next(1);
     rplSubj.next(2);
 
     rplSubj.subscribe(value => {
         expect(value).toEqual(result);
+        done();
     });
 });
 
-test('Replay subject is holding specified number of values', () => {
+test('Replay subject is holding specified number of values', done => {
     const rplSubj = new ReplaySubject(2);
-    let result = [2, 100];
+    let result = 2;
 
     rplSubj.next(1);
     rplSubj.next(2);
@@ -45,6 +47,7 @@ test('Replay subject is holding specified number of values', () => {
 
     rplSubj.subscribe(value => {
         expect(value).toEqual(result);
+        done();
     });
 });
 
@@ -57,7 +60,7 @@ test('Behavior subject with initial value', () => {
     });
 });
 
-test('Behavior subject with emitted value', () => {
+test('Behavior subject with emitted value', done => {
     const bhvSubj = new BehaviorSubject(5);
     let result = 7;
 
@@ -66,15 +69,17 @@ test('Behavior subject with emitted value', () => {
 
     bhvSubj.subscribe(value => {
         expect(value).toEqual(result);
+        done();
     });
 });
 
-test('Testing async subject', () => {
-    const asyncSubj = new AsyncSubject;
+test('Async subject', done => {
+    const asyncSubj = new AsyncSubject();
     asyncSubj.next(10);
     asyncSubj.next(11);
     asyncSubj.complete();
     asyncSubj.subscribe(value => {
-        expect(value).toStrictEqual(10, 11);
+        expect(value).toEqual(11);
+        done();
     });
 })
