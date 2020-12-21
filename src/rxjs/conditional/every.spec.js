@@ -6,8 +6,9 @@ const example = source.pipe(
   every(val => val % 2 === 0)
 );
 
-test('test every rxjs operator', () => {
+test('test every rxjs operator', done => {
     example.subscribe(val => {
         expect(val).toBeFalsy();
+        done();
     });
 });
