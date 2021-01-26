@@ -1,5 +1,5 @@
 const { from, combineLatest, timer } = require('rxjs');
-
+//TODO add subjects
 test('combineLatest combines latests values', () => {
     const source = timer(0, 100);
     const source1 = timer(50, 100);
@@ -7,10 +7,10 @@ test('combineLatest combines latests values', () => {
 
     (done) => {
         example.subscribe(val => {
-            setTimeout(() => {
-                expect(val).toEqual([0, 0]);
-                done();
-            }, 1000)
+            // setTimeout(() => {
+            expect(val).toEqual([0, 0]);
+            done();
+            // }, 1000)
         });
     }
 });

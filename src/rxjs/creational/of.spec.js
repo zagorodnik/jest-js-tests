@@ -1,10 +1,15 @@
 const { of } = require('rxjs');
 
-const source = of(1, 2, 3, 4, 5);
+
 
 test('test of operator', done => {
+    const result = [1, 2, 3, 4, 5];
+    const source = of(...result);
+
     source.subscribe(val => {
-        expect(val).toEqual(1)
-        done();
+        expect(val).toEqual(result.shift());
+
+        if (!result.length)
+            done();
     });
 });

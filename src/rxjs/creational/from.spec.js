@@ -9,7 +9,7 @@ test('Observable from array', (done) => {
 });
 
 test('Observable from promise', (done) => {
-    const promiseSource = from(new Promise(resolve => resolve('Hello World!')));
+    const promiseSource = from(Promise.resolve('Hello World!'));
     const subscribe = promiseSource.subscribe(
         val => expect(val).toEqual('Hello World!')
     );
