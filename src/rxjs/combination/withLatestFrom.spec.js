@@ -8,7 +8,7 @@ const example = interval(250).pipe(
 
 test('test withLatestFrom', done => {
     example.subscribe(val => {
-        expect(val).toBe([1, 0]);
+        expect(val).toStrictEqual([1, 0]);
         done();
     })
 });
