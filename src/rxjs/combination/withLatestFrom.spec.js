@@ -13,18 +13,15 @@ test('test withLatestFrom', done => {
     })
 });
 
-const bhvSubj1 = new BehaviorSubject('value1');
-const subj2 = new Subject();
+const bhvSubj = new BehaviorSubject('value1');
+const subj = new Subject();
 
-const myObservable = subj2.pipe(withLatestFrom(bhvSubj1), map(x => x[1]));
+const myObservable = subj.pipe(withLatestFrom(bhvSubj), map(x => x[1]));
 
-test('test withLatestFrom with behavior subjects', done => {
-    console.log(1);
+test('test withLatestFrom with subject and behavior subjects', done => {
     myObservable.subscribe((value) => {
-        console.log(3);
         expect(value).toStrictEqual('value1');
         done();
     });
-    console.log(2);
-    subj2.next('value22');
+    subj.next('value22');
 });

@@ -38,8 +38,8 @@ test('Replay subject is holding the last emitted value', done => {
 });
 
 test('Replay subject is holding specified number of values', done => {
-    const rplSubj = new ReplaySubject(2);
-    let result = 2;
+    const rplSubj = new ReplaySubject(1);
+    let result = 1;
 
     rplSubj.next(1);
     rplSubj.next(2);

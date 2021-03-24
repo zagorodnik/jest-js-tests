@@ -1,16 +1,13 @@
-const { from, combineLatest, timer } = require('rxjs');
-//TODO add subjects
-test('combineLatest combines latests values', () => {
-    const source = timer(0, 100);
-    const source1 = timer(50, 100);
-    let example = combineLatest(source, source1);
+const { combineLatest, Subject, BehaviorSubject } = require('rxjs');
 
-    (done) => {
-        example.subscribe(val => {
-            // setTimeout(() => {
-            expect(val).toEqual([0, 0]);
-            done();
-            // }, 1000)
-        });
-    }
+const source = new BehaviorSubject('value1');
+const source1 = new Subject();
+const example = combineLatest(source, source1);
+
+test('combineLatest combines latests values', done => {
+    example.subscribe(val => {
+        expect(val).toStrictEqual(['value1', 'new value']);
+        done();
+    });
+    source1.next('new value');
 });
